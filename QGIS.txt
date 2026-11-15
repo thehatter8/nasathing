@@ -1,0 +1,23 @@
+Aligned Mars layers for QGIS
+
+1. Add MOLA_terreno.tif, TES_inercia_termica.tif and Marte_nombres.shp.
+2. Right-click MOLA_terreno and select Set Project CRS from Layer.
+3. Set MOLA_terreno to Hillshade with band 1 (elevation). Set TES_inercia_termica
+   to Singleband pseudocolor on band 1 and lower its opacity to show the relief.
+   Label Marte_nombres with the name field. Keep the shapefile files together.
+4. TES_relieve.tif is the georeferenced ASU color preview with shaded relief.
+
+The rasters share one Mars equirectangular CRS, extent, and 2880 x 1440 grid.
+The map spans -180 to 180 degrees east and uses planetocentric latitude.
+The numeric TES layer uses J m^-2 K^-1 s^-1/2. The original values 25 and 602
+match the grayscale-only cells of the ASU preview after a 180-degree longitude
+shift and are shown as NoData. The remaining numeric TES values are preserved.
+
+The processed MOLA elevation, slope, and roughness bands were averaged onto the
+native TES grid (8 pixels/degree, ~7.41 km at the equator). The source MOLA band
+values in the original GeoTIFF remain available at its original resolution.
+
+Sources
+TES: https://www.mars.asu.edu/data/tes_ti/
+MOLA: https://pds-geosciences.wustl.edu/missions/mgs/megdr.html
+Gazetteer: https://planetarynames.wr.usgs.gov/Page/MARS/system
